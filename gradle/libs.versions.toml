@@ -24,6 +24,7 @@ flowExt = "0.6.1"
 gradle-analytics-plugin = "1.0.1"
 gradleAndroid = "8.2.0-alpha11"
 gradleDoctorPlugin = "0.8.1"
+iconics = "5.4.0"
 kermit = "2.0.0-RC4"
 koin = "3.4.2"
 koinCompose = "3.4.5"
@@ -43,6 +44,7 @@ serialization = "1.5.1"
 sqlDelight = "2.0.0-rc02"
 versionCatalogUpdatePlugin = "0.8.0"
 versionsPlugin = "0.47.0"
+iconics-fontawesome-typeface = "5.13.3.0-kotlin"
 
 [libraries]
 accompanist-drawablePainter = { module = "com.google.accompanist:accompanist-drawablepainter", version.ref = "accompanist" }
@@ -73,6 +75,9 @@ compose-dialogs-duration = { module = "com.maxkeppeler.sheets-compose-dialogs:du
 compose-dialogs-info = { module = "com.maxkeppeler.sheets-compose-dialogs:info", version.ref = "compose-dialogs" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-graphics = { module = "androidx.compose.animation:animation-graphics", version.ref = "compose" }
+iconics-compose = { module = "com.mikepenz:iconics-compose", version.ref = "iconics" }
+iconics-core = { module = "com.mikepenz:iconics-core", version.ref = "iconics" }
+iconics-fontawesome = { module = "com.mikepenz:fontawesome-typeface", version.ref = "iconics-fontawesome-typeface" }
 compose-material2 = { module = "androidx.compose.material:material", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose-navigation" }

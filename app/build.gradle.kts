@@ -55,6 +55,8 @@ dependencies {
 
     implementation(libs.koin.compose)
     implementation(libs.compose.icons)
+    api(libs.iconics.compose)
+    api(libs.iconics.fontawesome.get().toString() + "@aar")
     debugImplementation(libs.compose.tooling)
 }
 tasks {

@@ -1,58 +1,42 @@
 package com.nek12.ktordeadlockrepro
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Add
-import androidx.compose.material.icons.rounded.Clear
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.LoadState
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
-import androidx.paging.compose.collectAsLazyPagingItems
-import androidx.paging.compose.itemContentType
-import androidx.paging.compose.itemKey
+import com.mikepenz.iconics.compose.IconicsConfig
+import com.mikepenz.iconics.compose.Image
+import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 import com.nek12.ktordeadlockrepro.network.BrewApi
 import com.nek12.ktordeadlockrepro.network.paged
 import com.nek12.ktordeadlockrepro.ui.theme.KtorDeadlockReproTheme
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.cache
 import kotlinx.coroutines.plus
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -104,11 +88,19 @@ fun CutChip(
         modifier = modifier.padding(6.dp),
         leadingIcon = {
             AnimatedContent(selected) { isSelected ->
-                val icon = if (isSelected) Icons.Rounded.Clear else Icons.Rounded.Add
-                Icon(
-                    icon, modifier = Modifier
-                        .size(20.dp)
-                        .padding(4.dp), contentDescription = null
+                val icon = if (isSelected) FontAwesome.Icon.faw_toggle_off else FontAwesome.Icon.faw_toggle_on
+                Image(
+                    asset = icon,
+                    // without this - doesn't reproduce
+                    // uncomment to get a reproducer
+//                    modifier = Modifier.requiredSizeIn(maxWidth = 20.dp, maxHeight = 20.dp).padding(4.dp),
+                    alignment = Alignment.Center,
+                    contentScale = ContentScale.Fit,
+                    iconicsConfig = IconicsConfig(
+                        respectFontBounds = false,
+                        iconBrush = SolidColor(LocalContentColor.current),
+                        paddingDp = 1,
+                    ),
                 )
             }
         },
