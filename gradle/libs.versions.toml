@@ -85,6 +85,7 @@ compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "co
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 compose-windowsizeclass = { module = "androidx.compose.material3:material3-window-size-class", version.ref = "compose-material3" }
+compose-icons = { module = "androidx.compose.material:material-icons-core", version.ref = "compose" }
 flowext = { module = "io.github.hoc081098:FlowExt-jvm", version.ref = "flowExt" }
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }

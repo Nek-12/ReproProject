@@ -54,6 +54,8 @@ dependencies {
     implementation(libs.bundles.utils)
 
     implementation(libs.koin.compose)
+    implementation(libs.compose.icons)
+    debugImplementation(libs.compose.tooling)
 }
 tasks {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
