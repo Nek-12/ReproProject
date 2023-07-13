@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredSizeIn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.LocalContentColor
@@ -93,7 +94,7 @@ fun CutChip(
                     asset = icon,
                     // without this - doesn't reproduce
                     // uncomment to get a reproducer
-//                    modifier = Modifier.requiredSizeIn(maxWidth = 20.dp, maxHeight = 20.dp).padding(4.dp),
+                    modifier = Modifier.requiredSizeIn(maxWidth = 20.dp, maxHeight = 20.dp).padding(4.dp),
                     alignment = Alignment.Center,
                     contentScale = ContentScale.Fit,
                     iconicsConfig = IconicsConfig(
