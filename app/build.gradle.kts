@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.paging.compose)
     implementation(libs.paging.common)
     implementation(libs.bundles.utils)
+    implementation(libs.kotlinx.datetime)
 
     implementation(libs.koin.compose)
 }
