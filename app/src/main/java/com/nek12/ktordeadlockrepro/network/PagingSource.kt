@@ -3,8 +3,8 @@ package com.nek12.ktordeadlockrepro.network
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import pro.respawn.kmmutils.apiresult.ApiResult
-import pro.respawn.kmmutils.apiresult.fold
+import pro.respawn.apiresult.ApiResult
+import pro.respawn.apiresult.fold
 
 abstract class SequentialPagingSource<T : Any> : PagingSource<Int, T>() {
 

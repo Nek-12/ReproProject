@@ -4,7 +4,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.request.parameter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import pro.respawn.kmmutils.apiresult.ApiResult
+import pro.respawn.apiresult.ApiResult
 
 class BrewApi(client: HttpClient) : RestApi(client) {
 

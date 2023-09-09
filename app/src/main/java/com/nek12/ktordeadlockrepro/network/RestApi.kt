@@ -8,7 +8,7 @@ import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
 import io.ktor.http.HttpMethod
 import io.ktor.http.contentType
-import pro.respawn.kmmutils.apiresult.ApiResult
+import pro.respawn.apiresult.ApiResult
 
 open class RestApi(protected val client: HttpClient) {
 
