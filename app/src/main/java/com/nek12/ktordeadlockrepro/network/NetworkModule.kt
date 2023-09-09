@@ -1,12 +1,12 @@
 package com.nek12.ktordeadlockrepro.network
 
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
-import io.ktor.client.engine.cio.endpoint
+import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.DataConversion
 import io.ktor.client.plugins.HttpRequestRetry
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.addDefaultResponseValidation
+import io.ktor.client.plugins.compression.ContentEncoding
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.logging.ANDROID
 import io.ktor.client.plugins.logging.LogLevel
@@ -16,6 +16,7 @@ import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
+import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
@@ -35,7 +36,7 @@ private fun provideJson() = Json {
 }
 
 @Suppress("MagicNumber")
-private fun provideHttpClient(json: Json) = HttpClient(CIO) {
+private fun provideHttpClient(json: Json) = HttpClient(OkHttp) {
     install(Logging) {
         logger = Logger.ANDROID
         level = LogLevel.ALL
@@ -57,16 +58,18 @@ private fun provideHttpClient(json: Json) = HttpClient(CIO) {
 
     addDefaultResponseValidation()
 
+    install(DataConversion)
+    install(ContentEncoding) {
+        deflate(1f)
+        gzip(0.8f)
+        identity(0.5f)
+    }
+
     developmentMode = true
     expectSuccess = true
     followRedirects = true
     engine {
-        requestTimeout = 8000
-        maxConnectionsCount = 8000
         pipelining = true
-        endpoint {
-            connectTimeout = 8000
-            connectAttempts = 1
-        }
+        addInterceptor(HttpLoggingInterceptor().apply { setLevel(HttpLoggingInterceptor.Level.BODY) })
     }
 }

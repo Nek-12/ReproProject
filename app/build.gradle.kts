@@ -51,8 +51,10 @@ dependencies {
     implementation(libs.bundles.serialization)
     implementation(libs.paging.compose)
     implementation(libs.paging.common)
+    implementation(libs.ktor.okhttp)
     implementation(libs.bundles.utils)
     implementation(libs.kotlinx.datetime)
+    implementation(libs.okhttp.logging)
 
     implementation(libs.koin.compose)
 }

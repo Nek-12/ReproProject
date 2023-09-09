@@ -105,7 +105,8 @@ ktor-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
 ktor-contentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-encoding = { module = "io.ktor:ktor-client-encoding", version.ref = "ktor" }
-ktor-engine = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
@@ -139,7 +140,6 @@ ktor = [
     "ktor-contentNegotiation",
     "ktor-core",
     "ktor-encoding",
-    "ktor-engine",
     "ktor-logging",
     "ktor-serialization",
 ]
