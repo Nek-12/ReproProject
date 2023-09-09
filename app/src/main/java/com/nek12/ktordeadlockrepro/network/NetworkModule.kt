@@ -23,6 +23,7 @@ val networkModule = module {
     single { provideJson() }
     single { provideHttpClient(get()) }
     singleOf(::BrewApi)
+    singleOf(::RespawnApi)
 }
 
 @OptIn(ExperimentalSerializationApi::class)
